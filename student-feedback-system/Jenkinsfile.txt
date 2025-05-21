@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-username/Student-feedbacksystem.git'
+            }
+        }
+
+        stage('Build Backend Image') {
+            steps {
+                script {
+                    docker.build('student-feedback-backend', './backend')
+                }
+            }
+        }
+
+        stage('Build Frontend Image') {
+            steps {
+                script {
+                    docker.build('student-feedback-frontend', './frontend')
+                }
+            }
+        }
+
+        stage('Run Containers') {
+            steps {
+                sh 'docker-compose down'
+                sh 'docker-compose up -d --build'
+            }
+        }
+    }
+}

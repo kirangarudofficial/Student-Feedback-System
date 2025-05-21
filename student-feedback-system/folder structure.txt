@@ -1,0 +1,19 @@
+student-feedback-system/
+│
+├── frontend/
+│   ├── index.html
+│   └── Dockerfile
+│
+├── backend/
+│   ├── models/
+│   │   └── Feedback.js
+│   ├── routes/
+│   │   └── feedback.js
+│   ├── db.js
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+├── docker-compose.yml
+├── Jenkinsfile
+└── README.md
